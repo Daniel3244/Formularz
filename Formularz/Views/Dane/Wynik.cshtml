@@ -1,0 +1,44 @@
+﻿@model Formularz.Models.Dane
+@{
+    ViewData["Title"] = "Wynik";
+}
+
+<h1>Rejestracja zakończona pomyślnie</h1>
+Potwierdzam Twoje dane:
+<br />
+<br />
+
+<div>
+    Imię: @Model.Imie
+</div>
+<br />
+
+<div>
+    Nazwisko: @Model.Nazwisko
+</div>
+<br />
+
+<div>
+    Email: @Model.Email
+</div>
+<br />
+
+<div>
+    Hasło: @Model.Haslo
+</div>
+<br />
+
+<div>
+    Numer telefonu: @(Model.NrTel != null ? Model.NrTel : "Nie podano")
+</div>
+<br />
+
+<div>
+    Wiek: @(Model.Wiek != null ? Model.Wiek : "Nie podano")
+</div>
+<br />
+
+<div>
+    Miasto: @(Model.Miasto != null ? Model.Miasto : "Nie podano")
+</div>
+<br />

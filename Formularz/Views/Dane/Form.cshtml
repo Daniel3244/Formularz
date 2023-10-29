@@ -1,0 +1,71 @@
+﻿@model Formularz.Models.Dane
+
+@{
+    ViewData["Title"] = "Form";
+}
+
+<h1>Form</h1>
+
+@using (Html.BeginForm("Form", "Dane", FormMethod.Post))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    <div>
+        <label asp-for="Imie">Twoje imie:</label>
+        <input asp-for="Imie" data-val="true" data-val-required="Proszę podaj Imię" data-val-minlength="Imię musi mieć co najmniej 2 znaki" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="Nazwisko">Twoje nazwisko:</label>
+        <input asp-for="Nazwisko" data-val="true" data-val-required="Proszę podaj nazwisko" data-val-email="Nazwisko musi mieć co najmniej 2 znaki" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="Email">Twoj email:</label>
+        <input asp-for="Email" data-val="true" data-val-required="Proszę podaj Email" data-val-email="Niepoprawny format Email" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="Haslo">Hasło:</label>
+        <input asp-for="Haslo" type="password" data-val="true" data-val-required="Proszę podaj hasło" data-val-email="Hasło musi mieć co najmniej 8 znaków" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="PowtorzHaslo">Potwierdzenie hasła:</label>
+        <input asp-for="PowtorzHaslo" type="password" data-val="true" data-val-required="Proszę potwierdź Hasło" data-val-email="Hasło i potwierdzenie hasła muszą być identyczne" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="NrTel">Nr telefonu:</label>
+        <input asp-for="NrTel" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="Wiek">Wiek:</label>
+        <input asp-for="Wiek" />
+    </div>
+    <br />
+    <div>
+        <div>
+            <label asp-for="Miasto">Miasto:</label>
+            <select asp-for="Miasto">
+                <option value="">Wybierz...</option>
+                <option value="Krakow">Krakow</option>
+                <option value="Warszawa">Warszawa</option>
+                <option value="Wroclaw">Wroclaw</option>
+                <option value="Rzeszow">Rzeszow</option>
+                <option value="Zakopane">Zakopane</option>
+            </select>
+        </div>
+    </div>
+    <br />
+    <br />
+    <input type="submit" value="Submit" />
+    <input type="reset" value="Wyczyść" />
+
+    <script>
+        $(document).ready(function () {
+            $("form").validate();
+        });
+    </script>
+}
